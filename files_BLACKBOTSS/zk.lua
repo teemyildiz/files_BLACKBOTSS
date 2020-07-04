@@ -2,16 +2,15 @@
 
 --]]
 
-local function Zhrfa(msg,MsgText)
+local function Zhrfa(msg,text)
 if msg.type ~= "pv" then
-if MsgText[1] == "زخرفه" then
-database:setex(BLACKBOTSS..":ZhrfNow:"..msg.sender_user_id_,500,true)
+if text[1] == "زخرفه" then
+database:setex(bot_id..":ZhrfNow:"..msg.sender_user_id_,360,true)
 send(msg.chat_id_,msg.id_,"📑| حسننا , الان يمكنك ارسال الاسم 💯")    
 return false
 end
-
-if database:get(BLACKBOTSS..":ZhrfNow:"..msg.sender_user_id_) then
-database:del(BLACKBOTSS..":ZhrfNow:"..msg.sender_user_id_)
+if database:get(bot_id..":ZhrfNow:"..msg.sender_user_id_) then
+database:del(bot_id..":ZhrfNow:"..msg.sender_user_id_)
 if utf8.len(msg.text) > 300 then
 send(msg.chat_id_,msg.id_,"📛| لا يمكنك زخرفه اكثر من 20 حرف \n📑| ارسل امر زخرفه وحاول مجددا بحروف اقل")    
 return false
